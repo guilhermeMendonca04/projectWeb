@@ -113,7 +113,28 @@
     </div>
 
     <script>
-        
+        async function atualizaDados(){
+            try{
+            const resposta = await fetch('testWifi.json')
+
+            if(!resposta.ok){
+                throw new Error('Erro ao carregar dados do arquivo.')
+            }
+
+            const dados = await resposta.json();
+
+            document.getElementById('nomeRede').textContent = 'Nome da Rede: ${dados.nomeRede}';
+            document.getElementById('senha').textContent = 'Senha: ${dados.senha}';
+
+            }catch (erro) {
+                document.getElementById('nomeRede').textContent = 'Erro ao carregar nome da rede';
+                document.getElementById('senha').textContent = 'Erro ao carregar senha';
+                console.error('Erro:', erro);  
+            }
+        }  
+
+        // Chama a função quando a página carrega
+        window.addEventListener('DOMContentLoaded', carregarDadosWiFi);
     </script>
 
 </body>
