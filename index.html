@@ -115,7 +115,8 @@
     <script>
         async function atualizaDados(){
             try{
-            const resposta = await fetch('testWifi.json')
+            const resposta = await fetch('testWifi.json') //Para evitar erros de CORS, é necessário executar com Live Server ou algum host
+            //Não é possível executar localmente pelo index.html
 
             if(!resposta.ok){
                 throw new Error('Erro ao carregar dados do arquivo.')
