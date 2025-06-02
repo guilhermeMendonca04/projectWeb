@@ -107,8 +107,8 @@
         </div>
 
         <div class="informacoes">
-            <h3>Nome da Rede: Teste123</h3>
-            <h4>Senha: Testando123</h4>
+            <h3 id="nomeRede">Carregando...</h3>
+            <h4 id="senha">Carregando...</h4>
         </div>
     </div>
 
@@ -123,8 +123,8 @@
 
             const dados = await resposta.json();
 
-            document.getElementById('nomeRede').textContent = 'Nome da Rede: ${dados.nomeRede}';
-            document.getElementById('senha').textContent = 'Senha: ${dados.senha}';
+            document.getElementById('nomeRede').textContent = 'Nome da Rede: ' + dados.nomeRede;
+            document.getElementById('senha').textContent = 'Senha: ' + dados.senha;
 
             }catch (erro) {
                 document.getElementById('nomeRede').textContent = 'Erro ao carregar nome da rede';
@@ -134,7 +134,7 @@
         }  
 
         // Chama a função quando a página carrega
-        window.addEventListener('DOMContentLoaded', carregarDadosWiFi);
+        window.addEventListener('DOMContentLoaded', atualizaDados);
     </script>
 
 </body>
